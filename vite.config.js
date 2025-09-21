@@ -8,5 +8,8 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+  },
+  define: {
+    __BASE_URL__: JSON.stringify(process.env.NODE_ENV === 'production' ? '/jayakodykavishka/' : '/')
   }
 })
