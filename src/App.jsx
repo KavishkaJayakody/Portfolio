@@ -245,9 +245,19 @@ function App() {
       }
     }
 
+    const handleClickOutside = (event) => {
+      if (isMenuOpen && !event.target.closest('.nav-menu') && !event.target.closest('.nav-toggle')) {
+        setIsMenuOpen(false)
+      }
+    }
+
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isMenuOpen])
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId)
@@ -259,24 +269,36 @@ function App() {
 
   const nextProject = () => {
     setCurrentProjectIndex((prev) => {
-      const maxIndex = Math.max(0, mockData.projects.length - 3)
-      return Math.min(prev + 3, maxIndex)
+      const isMobile = window.innerWidth <= 768
+      const itemsPerView = isMobile ? 1 : 3
+      const maxIndex = Math.max(0, mockData.projects.length - itemsPerView)
+      return Math.min(prev + itemsPerView, maxIndex)
     })
   }
 
   const prevProject = () => {
-    setCurrentProjectIndex((prev) => Math.max(prev - 3, 0))
+    setCurrentProjectIndex((prev) => {
+      const isMobile = window.innerWidth <= 768
+      const itemsPerView = isMobile ? 1 : 3
+      return Math.max(prev - itemsPerView, 0)
+    })
   }
 
   const nextBlog = () => {
     setCurrentBlogIndex((prev) => {
-      const maxIndex = Math.max(0, mockData.blogs.length - 3)
-      return Math.min(prev + 3, maxIndex)
+      const isMobile = window.innerWidth <= 768
+      const itemsPerView = isMobile ? 1 : 3
+      const maxIndex = Math.max(0, mockData.blogs.length - itemsPerView)
+      return Math.min(prev + itemsPerView, maxIndex)
     })
   }
 
   const prevBlog = () => {
-    setCurrentBlogIndex((prev) => Math.max(prev - 3, 0))
+    setCurrentBlogIndex((prev) => {
+      const isMobile = window.innerWidth <= 768
+      const itemsPerView = isMobile ? 1 : 3
+      return Math.max(prev - itemsPerView, 0)
+    })
   }
 
   return (
@@ -501,7 +523,11 @@ function App() {
             <div className="carousel-container">
               <motion.div 
                 className="carousel-track"
-                animate={{ x: -currentProjectIndex * 33.33 + '%' }}
+                animate={{ 
+                  x: window.innerWidth <= 768 
+                    ? -currentProjectIndex * 100 + '%' 
+                    : -currentProjectIndex * 33.33 + '%' 
+                }}
                 transition={{ duration: 0.5, ease: 'easeInOut' }}
               >
                 {mockData.projects.map((project, index) => (
@@ -548,11 +574,22 @@ function App() {
           </div>
           
           <div className="carousel-indicators">
-            {Array.from({ length: Math.ceil(mockData.projects.length / 3) }).map((_, index) => (
+            {Array.from({ 
+              length: window.innerWidth <= 768 
+                ? mockData.projects.length 
+                : Math.ceil(mockData.projects.length / 3) 
+            }).map((_, index) => (
               <button
                 key={index}
-                className={`indicator ${index === Math.floor(currentProjectIndex / 3) ? 'active' : ''}`}
-                onClick={() => setCurrentProjectIndex(index * 3)}
+                className={`indicator ${
+                  window.innerWidth <= 768 
+                    ? index === currentProjectIndex 
+                    : index === Math.floor(currentProjectIndex / 3)
+                    ? 'active' : ''
+                }`}
+                onClick={() => setCurrentProjectIndex(
+                  window.innerWidth <= 768 ? index : index * 3
+                )}
               />
             ))}
           </div>
@@ -596,7 +633,7 @@ function App() {
                   <div className="timeline-description">
                     <p className="timeline-summary">
                       {item.type === 'education' 
-                        ? `Pursuing ${item.title.includes('B.Sc') ? 'Bachelor\'s degree' : 'Diploma'} at ${item.company}`
+                        ? `${item.title.includes('B.Sc') ? 'Pursuing Bachelor\'s degree' : item.title.includes('Diploma') ? 'Completed Diploma' : 'Completed'} at ${item.company}`
                         : `Worked as ${item.title} at ${item.company}`
                       }
                     </p>
@@ -660,7 +697,11 @@ function App() {
             <div className="carousel-container">
               <motion.div 
                 className="carousel-track"
-                animate={{ x: -currentBlogIndex * 33.33 + '%' }}
+                animate={{ 
+                  x: window.innerWidth <= 768 
+                    ? -currentBlogIndex * 100 + '%' 
+                    : -currentBlogIndex * 33.33 + '%' 
+                }}
                 transition={{ duration: 0.5, ease: 'easeInOut' }}
               >
                 {mockData.blogs.map((blog, index) => (
@@ -702,11 +743,22 @@ function App() {
           </div>
           
           <div className="carousel-indicators">
-            {Array.from({ length: Math.ceil(mockData.blogs.length / 3) }).map((_, index) => (
+            {Array.from({ 
+              length: window.innerWidth <= 768 
+                ? mockData.blogs.length 
+                : Math.ceil(mockData.blogs.length / 3) 
+            }).map((_, index) => (
               <button
                 key={index}
-                className={`indicator ${index === Math.floor(currentBlogIndex / 3) ? 'active' : ''}`}
-                onClick={() => setCurrentBlogIndex(index * 3)}
+                className={`indicator ${
+                  window.innerWidth <= 768 
+                    ? index === currentBlogIndex 
+                    : index === Math.floor(currentBlogIndex / 3)
+                    ? 'active' : ''
+                }`}
+                onClick={() => setCurrentBlogIndex(
+                  window.innerWidth <= 768 ? index : index * 3
+                )}
               />
             ))}
           </div>

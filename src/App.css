@@ -411,6 +411,7 @@ section {
   overflow: visible;
   display: -webkit-box;
   -webkit-line-clamp: 4;
+  line-clamp: 4;
   -webkit-box-orient: vertical;
 }
 
@@ -676,6 +677,7 @@ section {
   overflow: visible;
   display: -webkit-box;
   -webkit-line-clamp: 4;
+  line-clamp: 4;
   -webkit-box-orient: vertical;
 }
 
@@ -1039,19 +1041,42 @@ section {
 @media (max-width: 768px) {
   .nav-menu {
     position: fixed;
-    top: 100%;
-    left: 0;
-    right: 0;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
     background: var(--bg-primary);
     flex-direction: column;
-    padding: var(--space-xl);
-    transform: translateY(-100%);
+    padding: var(--space-3xl) var(--space-xl);
+    transform: translateX(0);
     transition: var(--transition-normal);
-    border-top: 1px solid rgba(118, 185, 0, 0.1);
+    border-left: 1px solid rgba(118, 185, 0, 0.1);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: var(--space-xl);
   }
 
   .nav-menu.active {
-    transform: translateY(0);
+    right: 0;
+  }
+
+  .nav-menu::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-menu.active::before {
+    opacity: 1;
   }
 
   .nav-toggle {
@@ -1117,8 +1142,9 @@ section {
   }
 
   .carousel-slide {
+    width: 100%;
     min-width: 100%;
-    padding: 0;
+    padding: 0 var(--space-sm);
   }
 
   .carousel-btn.prev {
@@ -1140,6 +1166,45 @@ section {
 
   .achievements-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Prevent horizontal scrolling */
+  body {
+    overflow-x: hidden;
+  }
+
+  .App {
+    overflow-x: hidden;
+  }
+
+  /* Mobile carousel improvements */
+  .carousel-container {
+    overflow: hidden;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  /* Mobile hero image sizing */
+  .hero-image {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Mobile navbar improvements */
+  .navbar {
+    padding: var(--space-sm) 0;
+  }
+
+  .nav-brand {
+    font-size: 1.1rem;
+  }
+
+  .nav-upgrade-icon {
+    width: 25px;
+    height: 25px;
   }
 }
 
