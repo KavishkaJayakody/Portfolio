@@ -29,7 +29,7 @@ const mockData = {
     linkedin: "https://linkedin.com/in/kavishka-jayakody",
     phone: "+94 705227915",
     bio: "Electronics and Telecommunication undergraduate with a strong interest in analog and digital circuits, circuit design, and simulation. Passionate about embedded systems, robotics, FPGA development, hardware prototyping, and VLSI. Proven hands-on experience through competitive robotics and academic projects, with a strong drive to apply technical expertise in solving real-world challenges and delivering impactful engineering solutions.",
-        image: "/Kavishka_J_nobg.png"
+        image: "https://kavishkajayakody.github.io/jayakodykavishka/Kavishka_J_nobg.png"
   },
   skills: [
     { name: "Python", category: "Programming" },
@@ -54,7 +54,7 @@ const mockData = {
       title: "Reconfigurable Robot Arm End Effector",
       description: "Designed and fabricated a pneumatic end effector capable of handling cardboard boxes of varying sizes, aimed at warehouse automation applications. Focused on mechanical design, pneumatic control, and system integration.",
       technologies: ["SolidWorks", "Pneumatic Systems", "Mechanical Design", "Automation"],
-      image: "/Robot_arm_end_effector.jpg",
+      image: "https://kavishkajayakody.github.io/jayakodykavishka/Robot_arm_end_effector.jpg",
       github: "https://github.com/KavishkaJayakody/robot-arm-end-effector",
       demo: null,
       featured: true
@@ -64,7 +64,7 @@ const mockData = {
       title: "Micromouse for Solving Complex Mazes",
       description: "Developed an autonomous robot to explore and solve unknown mazes using efficient pathfinding algorithms, optimized for speed and accuracy in competition environments.",
       technologies: ["Arduino", "C++", "Pathfinding Algorithms", "Robotics"],
-      image: "/Micromouse.JPG",
+      image: "https://kavishkajayakody.github.io/jayakodykavishka/Micromouse.JPG",
       github: "https://github.com/KavishkaJayakody/micromouse",
       demo: null,
       featured: true
@@ -74,7 +74,7 @@ const mockData = {
       title: "SynTrack - IoT Smart Bus Monitoring System",
       description: "Developed SynTrack, a real-time bus monitoring system for Sri Lanka's public transport sector, featuring GPS tracking, passenger counts and passenger and authority alerting system.",
       technologies: ["ESP32", "IoT", "GPS Tracking", "Real-time Monitoring"],
-      image: "/Syntrack.jpg",
+      image: "https://kavishkajayakody.github.io/jayakodykavishka/Syntrack.jpg",
       github: "https://github.com/KavishkaJayakody/syntrack",
       demo: null,
       featured: true
@@ -84,7 +84,7 @@ const mockData = {
       title: "UART Protocol Implementation using FPGA",
       description: "Implemented a UART transceiver on FPGA to transmit 4-bit switch inputs and receive 8-bit serial data, with real-time output on a multiplexed 3-digit 7-segment display. Verified through simulation and FPGA deployment.",
       technologies: ["SystemVerilog", "FPGA", "UART Protocol", "Quartus Prime"],
-      image: "/UART.jpg",
+      image: "https://kavishkajayakody.github.io/jayakodykavishka/UART.jpg",
       github: "https://github.com/KavishkaJayakody/uart-fpga",
       demo: null,
       featured: false
@@ -94,7 +94,7 @@ const mockData = {
       title: "Analog 5-Band Equalizer",
       description: "Built and tuned a fully functional analog equalizer with five adjustable frequency bands, enabling precise audio control using a single-supply design with carefully calibrated active filters. The design was implemented in PCB with signal integrity in mind.",
       technologies: ["Analog Circuit Design", "PCB Design", "Audio Processing", "LTSpice"],
-      image: "/5 Band_Equalizer.JPG",
+      image: "https://kavishkajayakody.github.io/jayakodykavishka/5 Band_Equalizer.JPG",
       github: "https://github.com/KavishkaJayakody/analog-equalizer",
       demo: null,
       featured: false
@@ -104,7 +104,7 @@ const mockData = {
       title: "Class D Audio Amplifier",
       description: "Designed and implemented a high-efficiency Class D amplifier from scratch using discrete analog components, covering pre-amplifier, modulation, driver, and output filter stages.",
       technologies: ["Analog Design", "Power Electronics", "Audio Amplification", "Circuit Analysis"],
-      image: "/Class_D.jpg",
+      image: "https://kavishkajayakody.github.io/jayakodykavishka/Class_D.jpg",
       github: "https://github.com/KavishkaJayakody/class-d-amplifier",
       demo: null,
       featured: false
@@ -292,7 +292,7 @@ function App() {
           >
             <Code className="nav-icon" />
             <span>Kavishka</span>
-            <img src="/Upgrade.png" alt="Upgrade" className="nav-upgrade-icon" />
+            <img src="https://kavishkajayakody.github.io/jayakodykavishka/Upgrade.png" alt="Upgrade" className="nav-upgrade-icon" />
           </motion.div>
           
           <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
