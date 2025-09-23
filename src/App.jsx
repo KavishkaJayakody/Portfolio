@@ -22,7 +22,7 @@ const mockData = {
   personal: {
     name: "Kavishka Jayakody",
     title: "Electronics & Telecommunication Engineering Student",
-    subtitle: "Hardware Engineer & Robotics Enthusiast",
+    subtitle: "Hardware Engineer & Electronics Enthusiast",
     location: "University of Moratuwa, Sri Lanka",
     email: "jayakodykavishka@gmail.com",
     github: "https://github.com/KavishkaJayakody",
