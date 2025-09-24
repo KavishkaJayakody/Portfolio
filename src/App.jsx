@@ -57,7 +57,7 @@ const mockData = {
       description: "Designed and fabricated a pneumatic end effector capable of handling cardboard boxes of varying sizes, aimed at warehouse automation applications. Focused on mechanical design, pneumatic control, and system integration.",
       technologies: ["SolidWorks", "Pneumatic Systems", "Mechanical Design", "Automation"],
       image: `${BASE_URL}Robot_arm_end_effector.jpg`,
-      github: "https://github.com/KavishkaJayakody/robot-arm-end-effector",
+      github: "https://github.com/KavishkaJayakody/End_Effector",
       demo: null,
       featured: true
     },
@@ -77,7 +77,7 @@ const mockData = {
       description: "Developed SynTrack, a real-time bus monitoring system for Sri Lanka's public transport sector, featuring GPS tracking, passenger counts and passenger and authority alerting system.",
       technologies: ["ESP32", "IoT", "GPS Tracking", "Real-time Monitoring"],
       image: `${BASE_URL}Syntrack.jpg`,
-      github: "https://github.com/KavishkaJayakody/syntrack",
+      github: "https://github.com/KavishkaJayakody/SLIoT_Syntec",
       demo: null,
       featured: true
     },
@@ -87,7 +87,7 @@ const mockData = {
       description: "Implemented a UART transceiver on FPGA to transmit 4-bit switch inputs and receive 8-bit serial data, with real-time output on a multiplexed 3-digit 7-segment display. Verified through simulation and FPGA deployment.",
       technologies: ["SystemVerilog", "FPGA", "UART Protocol", "Quartus Prime"],
       image: `${BASE_URL}UART.jpg`,
-      github: "https://github.com/KavishkaJayakody/uart-fpga",
+      github: "https://github.com/KavishkaJayakody/UART_in_FPGA",
       demo: null,
       featured: false
     },
@@ -97,7 +97,7 @@ const mockData = {
       description: "Built and tuned a fully functional analog equalizer with five adjustable frequency bands, enabling precise audio control using a single-supply design with carefully calibrated active filters. The design was implemented in PCB with signal integrity in mind.",
       technologies: ["Analog Circuit Design", "PCB Design", "Audio Processing", "LTSpice"],
       image: `${BASE_URL}5 Band_Equalizer.JPG`,
-      github: "https://github.com/KavishkaJayakody/analog-equalizer",
+      github: "https://github.com/KavishkaJayakody/5-Band-Equalizer",
       demo: null,
       featured: false
     },
@@ -154,7 +154,7 @@ const mockData = {
       id: 2,
       title: "Robotics Competition Strategies",
       description: "Lessons learned from participating in multiple robotics competitions including Micromouse and Robofest challenges.",
-      url: "https://kavishka-blog.com/robotics-competition-strategies",
+      url: "https://medium.com/@jayakodykavishka/robotics-competition-strategies",
       date: "2024-02-20",
       category: "Robotics"
     },
@@ -162,7 +162,7 @@ const mockData = {
       id: 3,
       title: "Analog Circuit Design Principles",
       description: "Deep dive into analog circuit design techniques, focusing on active filters and audio processing circuits.",
-      url: "https://electronics-blog.com/analog-circuit-design",
+      url: "https://medium.com/@jayakodykavishka/analog-circuit-design-principals-3d992ef2c35d",
       date: "2024-03-10",
       category: "Circuit Design"
     },
@@ -170,7 +170,7 @@ const mockData = {
       id: 4,
       title: "IoT Implementation in Public Transport",
       description: "Case study on developing SynTrack - an IoT-based bus monitoring system for Sri Lankan public transport.",
-      url: "https://iot-engineering.com/syntrack-case-study",
+      url: "https://medium.com/@jayakodykavishka/iot-implementation-in-public-transport-syntrack",
       date: "2024-04-05",
       category: "IoT"
     }
@@ -316,7 +316,7 @@ function App() {
           >
             <Code className="nav-icon" />
             <span>Kavishka</span>
-            <img src="https://kavishkajayakody.github.io/jayakodykavishka/Upgrade.png" alt="Upgrade" className="nav-upgrade-icon" />
+            <img src={`${BASE_URL}Upgrade.png`} alt="Upgrade" className="nav-upgrade-icon" />
           </motion.div>
           
           <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
